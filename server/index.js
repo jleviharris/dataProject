@@ -207,10 +207,74 @@ app.get("/wage/:wage", (req, res) => {
     }
   });
 });
-//PUT request to update wage
-app.put("/update", (req, res) => {
+//PUT request to update name
+app.put("/updateName", (req, res) => {
   const id = req.body.id;
-  const wage = req.body.wage;
+  const name = req.body.name;
+  db.query(
+    "UPDATE employees SET name = ? WHERE id = ?",
+    [name, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+//PUT request to update age
+app.put("/updateAge", (req, res) => {
+  const id = req.body.id;
+  const age = parseInt(req.body.age);
+  db.query(
+    "UPDATE employees SET age = ? WHERE id = ?",
+    [age, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+//PUT request to update Country
+app.put("/updateCountry", (req, res) => {
+  const id = req.body.id;
+  const country = req.body.country;
+  db.query(
+    "UPDATE employees SET country = ? WHERE id = ?",
+    [country, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+//PUT request to update position
+app.put("/updatePosition", (req, res) => {
+  const id = req.body.id;
+  const position = req.body.position;
+  db.query(
+    "UPDATE employees SET position = ? WHERE id = ?",
+    [position, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+//PUT request to update wage
+app.put("/updateWage", (req, res) => {
+  const id = req.body.id;
+  const wage = parseInt(req.body.wage);
   db.query(
     "UPDATE employees SET wage = ? WHERE id = ?",
     [wage, id],
