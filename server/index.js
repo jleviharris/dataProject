@@ -7,11 +7,14 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: "password",
-  database: "employeeSystem",
+  user: "b502fcbe8105bf",
+  host: "us-cdbr-east-06.cleardb.net",
+  password: "19fd6578",
+  database: "heroku_77bcd9d36202d65",
 });
+
+// mysql://b502fcbe8105bf:19fd6578@us-cdbr-east-06.cleardb.net/heroku_77bcd9d36202d65?
+
 //////////////////////    EMPLOYEES ////////////////////////
 //POST request to create new employee
 app.post("/create", (req, res) => {
@@ -545,7 +548,7 @@ app.delete("/deleteManager/:id", (req, res) => {
     }
   });
 });
-
-app.listen(3001, () => {
-  console.log("Server is running on 3001");
+const port = process.env.PORT || 3001;
+app.listen(port, () => {
+  console.log(`Server is running on ${port}`);
 });
