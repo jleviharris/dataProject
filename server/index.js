@@ -5,6 +5,10 @@ const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 const db = mysql.createConnection({
   user: "b502fcbe8105bf",
