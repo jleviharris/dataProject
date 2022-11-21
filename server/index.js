@@ -3,7 +3,13 @@ const mysql = require("mysql");
 const cors = require("cors");
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    allowedHeaders: "*",
+    allowMethods: "*",
+    origin: "*",
+  })
+);
 app.use(express.json());
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -16,7 +22,7 @@ const db = mysql.createConnection({
   password: "19fd6578",
   database: "heroku_77bcd9d36202d65",
 });
-
+// https://employeedatabasesql.herokuapp.com
 // mysql://b502fcbe8105bf:19fd6578@us-cdbr-east-06.cleardb.net/heroku_77bcd9d36202d65?
 
 //////////////////////    EMPLOYEES ////////////////////////
