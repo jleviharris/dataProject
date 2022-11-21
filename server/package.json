@@ -2,15 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
+  "proxy": "https://employeedatabasesql.herokuapp.com",
   "main": "index.js",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "devStart": "nodemon index.js",
     "web": "node index.js"
-    
-    
   },
   "author": "",
   "license": "ISC",
